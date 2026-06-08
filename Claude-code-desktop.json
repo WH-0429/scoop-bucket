@@ -1,41 +1,40 @@
 {
     "version": "1.11187.4",
-    "description": "Claude-code-Desktop",
+    "description": "Claude Desktop App (Portable)",
     "homepage": "https://claude.ai",
     "license": "Proprietary",
+    "innosetup": false,
     "architecture": {
         "64bit": {
-            "url": "https://downloads.claude.ai/releases/win32/x64/1.11187.4/ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe",
-            "hash": "af2ddf9abf88f0c5b36cf9e042c21d8bbe769891dd8114d3716e37c112752c0d"
+            "url": "https://api.anthropic.com/api/desktop/win32/x64/msix/latest/redirect#/dl.msix",
+            "hash": null
         }
     },
-    "installer": {
-        "script": [
-            "Start-Process -FilePath \"$dir\\ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe\" -ArgumentList \"/S\" -Wait"
-        ]
-    },
-    "post_install": {
-        "script": [
-            "Remove-Item \"$dir\\ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe\" -Force"
-        ]
-    },
+    "pre_install": [
+        "Write-Host '正在解压 MSIX 安装包为绿色版...' -ForegroundColor Cyan",
+        "Expand-7ZipArchive \"$dir\\dl.msix\" \"$dir\\_temp_extract\" | Out-Null",
+        "Get-ChildItem \"$dir\\_temp_extract\\*\" -Exclude 'Appx*' | ForEach-Object {",
+        "    Move-Item \"$_\" \"$dir\" -Force",
+        "}",
+        "Remove-Item \"$dir\\_temp_extract\" -Recurse -Force",
+        "Remove-Item \"$dir\\dl.msix\" -Force"
+    ],
     "shortcuts": [
         [
             "Claude.exe",
-            "Claude"
+            "Claude Desktop"
         ]
     ],
     "checkver": {
-        "url": "https://claude.ai/download",
-        "regex": "ClaudeSetup-([\\w]+)\\.exe"
+        "url": "https://api.anthropic.com/api/desktop/win32/x64/msix/latest/redirect",
+        "regex": "releases/win32/x64/([\\d.]+)/"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://downloads.claude.ai/releases/win32/x64/$version/ClaudeSetup-$match1.exe",
+                "url": "https://api.anthropic.com/api/desktop/win32/x64/msix/latest/redirect#/dl.msix",
                 "hash": {
-                    "url": "https://claude.ai/download",
-                    "regex": "ClaudeSetup-$match1\\.exe"
+                    "type": "sha256"
                 }
             }
         }

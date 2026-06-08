@@ -1,6 +1,6 @@
 {
     "version": "1.11187.4",
-    "description": "Claude-code-Desktop ",
+    "description": "Claude-code-Desktop",
     "homepage": "https://claude.ai",
     "license": "Proprietary",
     "architecture": {
@@ -11,8 +11,12 @@
     },
     "installer": {
         "script": [
-            "Start-Process -FilePath \"$dir\\ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe\" -ArgumentList \"/S\" -Wait",
-            "Remove-Item \"$dir\\ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe\""
+            "Start-Process -FilePath \"$dir\\ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe\" -ArgumentList \"/S\" -Wait"
+        ]
+    },
+    "post_install": {
+        "script": [
+            "Remove-Item \"$dir\\ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe\" -Force"
         ]
     },
     "shortcuts": [
@@ -30,7 +34,8 @@
             "64bit": {
                 "url": "https://downloads.claude.ai/releases/win32/x64/$version/ClaudeSetup-$match1.exe",
                 "hash": {
-                    "type": "sha256"
+                    "url": "https://claude.ai/download",
+                    "regex": "ClaudeSetup-$match1\\.exe"
                 }
             }
         }

@@ -3,7 +3,7 @@
     "description": "Claude Desktop",
     "homepage": "https://claude.ai/desktop",
     "license": "Proprietary",
-    "nsis": true,
+    "innosetup": true,
     "architecture": {
         "64bit": {
             "url": "https://downloads.claude.ai/releases/win32/x64/1.11187.4/ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe",

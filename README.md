@@ -5,7 +5,7 @@
 ## 已包含的软件
 
 - **lceda-pro**: 嘉立创 EDA 专业版
-
+- **Claude-code-desktop**: Claude code 桌面版
 ## 如何安装
 
 1. 添加此仓库：
@@ -16,4 +16,7 @@
 
    ```powershell
    scoop install WH-bucket/lceda-pro
+   ```
+   ```powershell
+   scoop install WH-bucket/Claude-code-desktop
    ```

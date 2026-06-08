@@ -13,10 +13,11 @@
    ```powershell
    scoop bucket add WH-bucket https://github.com/WH-079/scoop-bucket
    ```
-
+   嘉立创 EDA 专业版
    ```powershell
    scoop install WH-bucket/lceda-pro
    ```
+   Claude code 桌面版
    ```powershell
    scoop install WH-bucket/Claude-code-desktop
    ```

@@ -1,0 +1,33 @@
+{
+    "version": "1.11187.4",
+    "description": "Claude Desktop",
+    "homepage": "https://claude.ai/desktop",
+    "license": "Proprietary",
+    "nsis": true,
+    "architecture": {
+        "64bit": {
+            "url": "https://downloads.claude.ai/releases/win32/x64/1.11187.4/ClaudeSetup-58400536f3ccde1cff9a129de6c3112dc8cb489a.exe",
+            "hash": "af2ddf9abf88f0c5b36cf9e042c21d8bbe769891dd8114d3716e37c112752c0d"
+        }
+    },
+    "shortcuts": [
+        [
+            "Claude.exe",
+            "Claude Desktop"
+        ]
+    ],
+    "checkver": {
+        "url": "https://claude.ai/desktop",
+        "regex": "ClaudeSetup-([a-f0-9]+)\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://downloads.claude.ai/releases/win32/x64/$version/ClaudeSetup-$matchHash.exe",
+                "hash": {
+                    "type": "sha256"
+                }
+            }
+        }
+    }
+}

@@ -21,3 +21,7 @@
    ```powershell
    scoop install WH-bucket/Claude-code-desktop
    ```
+   Codex 桌面版
+   ```powershell
+   scoop install WH-bucket/Codex-desktop
+   ```

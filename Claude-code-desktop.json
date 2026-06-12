@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://api.anthropic.com/api/desktop/win32/x64/msix/latest/redirect#/dl.zip",
-            "hash": "f5fc745c1b08049cdba70920dbd228fbc9ba1439ed9e8de51da732c64ebccf99"
+            "hash": "01777d6e38533e2b7a7454d21a65b23fb1264d8f5957613c6f44d5bc34b42f37"
         }
     },
     "shortcuts": [
